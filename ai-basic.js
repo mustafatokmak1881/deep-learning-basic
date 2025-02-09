@@ -18,7 +18,7 @@ const veriSeti = [
     { girdi: 10, cikti: 50 },
 ];
 
-function egit(veriSeti, noron, ogrenmeOrani) {
+function egit(veriSeti, noron, ogrenmeOrani, i) {
     for (let i = 0; i < veriSeti.length; i++) {
         const girdi = veriSeti[i].girdi;
         const gercekCikti = veriSeti[i].cikti;
@@ -26,7 +26,7 @@ function egit(veriSeti, noron, ogrenmeOrani) {
         const hata = gercekCikti - tahminEdilenCikti;
 
         noron.agirlik += hata * ogrenmeOrani;
-        console.log({ hata, ogrenmeOrani });
+        console.log({ hata, ogrenmeOrani, agirlik: noron.agirlik, i });
     }
 }
 
@@ -34,9 +34,9 @@ const ogrenmeOrani = 0.1;
 const donguSayisi = 100;
 
 for (let i = 0; i < donguSayisi; i++) {
-    egit(veriSeti, noron, ogrenmeOrani);
+    egit(veriSeti, noron, ogrenmeOrani, i);
 }
 
-const yeniGirdi = 5;
+const yeniGirdi = 3;
 const tahminEdilenCikti = noron.hesapla(yeniGirdi);
 console.log(`Tahmin edilen çıktı (${yeniGirdi} için):`, tahminEdilenCikti);
